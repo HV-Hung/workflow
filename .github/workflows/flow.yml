@@ -13,4 +13,4 @@ jobs:
     steps:
       - name: "Echo ENV"
         run : |
-          echo "${{ env.TEST_VAR }}"
+          echo "${{ vars.TEST_VAR }}"

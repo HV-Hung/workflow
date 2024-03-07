@@ -23,7 +23,7 @@ jobs:
           version: stable
           github-token: ${{ secrets.GITHUB_TOKEN}}
       - name: "GitHub create Release"
-        if: 0
+        if: 1
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

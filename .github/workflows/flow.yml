@@ -18,7 +18,7 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v3
       - name: "GitHub CLI Setup"
-        uses: sersoft-gmbh/setup-gh-cli-action@v2
+        uses: sersoft-gmbh/setup-gh-cli-action@v2.0.1
         with:
           version: stable
           github-token: ${{ secrets.GITHUB_TOKEN}}
@@ -40,8 +40,6 @@ jobs:
           
           gh release edit "${VERSION}" --draft=true --prerelease=false
       - name: "Check rate limit"
-        env:
-          GH_TOKEN: ${{ secrets.GIT_HUB_API_TOKEN }}
         run: |
           gh api \
           -H "Accept: application/vnd.github+json" \

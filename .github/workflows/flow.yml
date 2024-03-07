@@ -1,4 +1,4 @@
-name: "Mapview Release GitHub Flow"
+name: "Test env"
 on:
   workflow_dispatch
 

@@ -40,6 +40,8 @@ jobs:
           
           gh release edit "${VERSION}" --draft=true --prerelease=false
       - name: "Check rate limit"
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh api \
           -H "Accept: application/vnd.github+json" \

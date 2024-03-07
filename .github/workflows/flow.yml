@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: dev
+    env:
+      TEST_VAR: job env
 
     steps:
       - name: "Echo ENV"

@@ -14,3 +14,6 @@ jobs:
       - name: "Echo ENV"
         run : |
           echo "${{ vars.TEST_VAR }}"
+          echo $TEST_VAR
+          TEST_VAR="declare in pipeline"
+          echo $TEST_VAR

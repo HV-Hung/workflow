@@ -17,3 +17,4 @@ jobs:
           echo $TEST_VAR
           TEST_VAR="declare in pipeline"
           echo $TEST_VAR
+          echo "${{ env.TEST_VAR }}"

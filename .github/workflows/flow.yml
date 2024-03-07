@@ -5,7 +5,7 @@ on:
 jobs:
   github:
     timeout-minutes: 30
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
 
     steps:
       - name: "Echo ENV"

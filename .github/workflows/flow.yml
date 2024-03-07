@@ -9,4 +9,4 @@ jobs:
 
     steps:
       - name: "Echo ENV"
-        run : "echo ${{ env.GIT_HUB_API_TOKEN }}"
+        run : "echo ${{ env.TEST_VAR }}"

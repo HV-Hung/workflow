@@ -28,11 +28,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           VERSION=1.0.0
-          git config --global user.email hoangvanhung6876@gmail.com
-          git config --global user.name hung
-          git tag "${VERSION}"
-          git push origin "${VERSION}"
-
+          
           gh release create "${VERSION}" -t "${VERSION}" --generate-notes --verify-tag
 
       - name: "GitHub Release as Draft"

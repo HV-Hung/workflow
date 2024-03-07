@@ -33,6 +33,8 @@ jobs:
 
       - name: "GitHub Release as Draft"
         if: 1
+        env:
+          GH_TOKEN: ${{ secrets.GIT_HUB_API_TOKEN }}
         run: |
           VERSION=1.0.0
           

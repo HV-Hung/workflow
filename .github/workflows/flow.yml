@@ -13,10 +13,19 @@ jobs:
       TEST_VAR: job env
 
     steps:
-      - name: "Echo ENV"
-        run : |
-          echo "${{ vars.TEST_VAR }}"
-          echo $TEST_VAR
-          TEST_VAR="declare in pipeline"
-          echo $TEST_VAR
-          echo "${{ env.TEST_VAR }}"
+      - name: "Checkout"
+        uses: actions/checkout@v3
+      - name: "GitHub CLI Setup"
+        uses: sersoft-gmbh/setup-gh-cli-action@v2
+        with:
+          version: stable
+      - name: "GitHub Release as Draft"
+        
+        run: |
+          VERSION=1.0.o
+          git config --global user.email hoangvanhung6876@gmail.com
+          git config --global user.name hung
+          git tag "${VERSION}"
+          git push origin "${VERSION}"
+
+          gh release create "${VERSION}" -t "${VERSION}" --generate-notes --verify-tag

@@ -21,7 +21,6 @@ jobs:
         uses: sersoft-gmbh/setup-gh-cli-action@v2
         with:
           version: stable
-          github-token: ${{ secrets.GITHUB_TOKEN}}
       - name: "GitHub create Release"
         if: 0
         env:

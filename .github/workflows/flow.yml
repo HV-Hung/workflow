@@ -19,7 +19,8 @@ jobs:
         uses: sersoft-gmbh/setup-gh-cli-action@v2
         with:
           version: stable
-      - name: "GitHub Release as Draft"
+          github-token: ${{ secrets.GIT_HUB_API_TOKEN}}
+      - name: "GitHub create Release"
         
         run: |
           VERSION=1.0.o

@@ -1,0 +1,15 @@
+name: Main workflow
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Use reusable step
+      id: reusable
+      uses: ./.github/workflows/create-file.yml
+      with:
+          filename: 'myfile.txt'
+    - name: Use file
+      run: cat ${{ steps.reusable.outputs.filepath }}

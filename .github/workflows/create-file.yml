@@ -1,20 +1,20 @@
-name: "Test env"
+name: Create file
 on:
-  - workflow_dispatch
-  - push
-
+  workflow_call:
+    inputs:
+      filename:
+        required: true
+        type: string
+    outputs:
+      filepath:
+        value: ${{ jobs.create.outputs.create.outputs.filepath }}
+        description: "The path of the created file"
 jobs:
-  github:
-    timeout-minutes: 30
+  create:
     runs-on: ubuntu-latest
     steps:
-      # This step will create a file and output link of file to next step
-      - name: Create file
-        id: create_file
-        run: |
-          echo "Hello world" > test.txt
-          echo "file_path=$(pwd)/test.txt" >> $GITHUB_OUTPUT
-      # This step will cat the file from previous step
-      - name: Cat file
-        run: |
-          cat ${{ steps.create_file.outputs.file_path }}
+    - name: Create file
+      id: create
+      run: |
+        echo "File content" > ${{ inputs.filename }}
+        echo "filename=$(pwd)/${{ inputs.filename }}" >> $GITHUB_OUTPUT

@@ -1,0 +1,19 @@
+name: "Test env"
+on:
+  - workflow_dispatch
+  - push
+
+jobs:
+  github:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      # This step will create a file and output link of file to next step
+      - name: Create file
+        run: |
+          echo "Hello world" > test.txt
+          echo "::set-output name=file_path::$(pwd)/test.txt"\
+      # This step will cat the file from previous step
+      - name: Cat file
+        run: |
+          cat ${{ steps.create_file.outputs.file_path }}

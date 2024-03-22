@@ -4,12 +4,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    - name: Use reusable step
-      id: reusable
-      uses: ./.github/workflows/create-file.yml
-      with:
-          filename: 'myfile.txt'
+    - name: Create file
+      id: create_file
+      uses: HV-Hung/workflow-create-file@main
     - name: Use file
       run: cat ${{ steps.reusable.outputs.filepath }}

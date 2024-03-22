@@ -8,4 +8,4 @@ jobs:
       id: create_file
       uses: HV-Hung/workflow-create-file@main
     - name: Use file
-      run: cat ${{ steps.reusable.outputs.filepath }}
+      run: cat ${{ steps.reusable.outputs.secrets_file }}

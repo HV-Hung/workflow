@@ -10,9 +10,10 @@ jobs:
     steps:
       # This step will create a file and output link of file to next step
       - name: Create file
+        id: create_file
         run: |
           echo "Hello world" > test.txt
-          echo "::set-output name=file_path::$(pwd)/test.txt"\
+          echo "file_path=$(pwd)/test.txt" >> $GITHUB_OUTPUT
       # This step will cat the file from previous step
       - name: Cat file
         run: |

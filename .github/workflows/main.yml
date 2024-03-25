@@ -7,8 +7,6 @@ jobs:
     - name: Create file
       id: create_file
       uses: HV-Hung/workflow-create-file@main
-      with:
-        create_secret_file: secrets
     - name: Cat file
       run: cat ${{ steps.create_file.outputs.secrets_file }}
     - name: Cat file 2
